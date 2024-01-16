@@ -1,6 +1,23 @@
 #!/bin/bash
-VERSION="$(ls -lrt Modules | tail -1 | awk '{print $9}' | sed 's/\.sh$//')";
-cat Formula/boot.rb | sed -E 's/^.+version ".+$/    version "'$VERSION'"/' > Formula/boot.tmp && mv Formula/boot.tmp Formula/boot.rb;
+# ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– update version
+CURRENT_VERSION="$(cat lastversion.txt)";
+echo "$CURRENT_VERSION";
+MAJOR=$(echo "$CURRENT_VERSION" | awk -F'.' '{print $1}');
+MINOR=$(echo "$CURRENT_VERSION" | awk -F'.' '{print $2}');
+FIXES=$(echo "$CURRENT_VERSION" | awk -F'.' '{print $3}');
+FIXES=$((FIXES+1));
+if [ $FIXES -gt 999 ]; then
+    FIXES=100;
+    MINOR=$(( MINOR + 1 ));
+    if [ $MINOR -gt 999 ]; then
+        MINOR=100;
+        MAJOR=$((MAJOR+1));
+    fi;
+fi;
+COMMIT_VERSION="${MAJOR}.${MINOR}.${FIXES}";
+cat Formula/niosz.rb | \
+sed -E 's/^.+version ".+$/    version "'$COMMIT_VERSION'"/' > Formula/niosz.tmp && mv Formula/niosz.tmp Formula/niosz.rb;
+echo "$COMMIT_VERSION" > lastversion.txt;
 git add .;
-git commit -m "$VERSION";
+git commit -m "$COMMIT_VERSION";
 git push;
