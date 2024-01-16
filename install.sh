@@ -1,6 +1,7 @@
 #!/bin/bash
-env;
-exit;
+ADDPATH="/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin";
+if [ ! "$HOMEBREW_PREFIX" = "" ]; then ADDPATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$ADDPATH"; fi;
+export PATH="$ADDPATH:$PATH";
 function process() {
     function installed() {
         brew list | cat | sort | uniq;
