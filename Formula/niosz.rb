@@ -1,7 +1,7 @@
-class Boot < Formula
+class Niosz < Formula
     desc "essential tools"
     homepage "https://github.com/niosz/homebrew-niosz"
-    version "100.100.113"
+    version "100.100.114"
     url "https://github.com/niosz/homebrew-niosz.git", branch: "main"
     license "MIT"
     def install
