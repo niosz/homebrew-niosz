@@ -14,7 +14,7 @@ function process() {
     rm installed.txt;
     CHECK=$(cat install.txt | wc -l | awk '{print $1}');
     if [ $CHECK -ne 0 ]; then
-        cat install.txt | awk '{print "brew install "$0}' | bash;
+        cat install.txt | awk '{print "brew install "$0}';
         rm install.txt;
         brew update;
         brew upgrade;
