@@ -1,4 +1,6 @@
 #!/bin/bash
+env;
+exit;
 function process() {
     function installed() {
         brew list | cat | sort | uniq;
