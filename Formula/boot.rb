@@ -5,7 +5,6 @@ class Boot < Formula
     url "https://github.com/niosz/homebrew-niosz.git"
     license "MIT"
     def install
-        system "echo '💾 installing visual studio code'"
-        system "brew install --cask visual-studio-code"
+        system "./install.sh"
     end
   end
