@@ -10,7 +10,7 @@ function infor() {
 export -f infor;
 function error() {
     local MESSAGE="$@";
-    if [ "$MESSAGE" = "" ]; then MESSAGE="unknow fatal error";
+    if [ "$MESSAGE" = "" ]; then MESSAGE="unknow fatal error"; fi;
     echo -e "[$(date '+%Y-%m-%d %H:%M:%S')]($NNINIT_PID) 🆘 [ERROR] \033[1;32m${MESSAGE}\033[0m";
     exit 1;
 }; 

@@ -1,7 +1,7 @@
 class Niosz < Formula
     desc "NiosZ Shell System (nn) Installation/Repair/Upgrade"
     homepage "https://github.com/niosz/homebrew-niosz"
-    version "100.100.121"
+    version "100.100.122"
     url "https://github.com/niosz/homebrew-niosz.git", branch: "main"
     license "MIT"
     def install
