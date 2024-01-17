@@ -1,2 +1,3 @@
 # homebrew-niosz
-initial configuration and tool for developers on macos
+MatrixZ Shell NiosZ System
+after brew installation run "niosz-install" for complete intergration

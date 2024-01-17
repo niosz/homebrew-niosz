@@ -1,12 +1,18 @@
 class Niosz < Formula
-    desc "essential tools"
+    desc "NiosZ Shell System (nn) Installation/Repair/Upgrade"
     homepage "https://github.com/niosz/homebrew-niosz"
-    version "100.100.120"
+    version "100.100.121"
     url "https://github.com/niosz/homebrew-niosz.git", branch: "main"
     license "MIT"
     def install
-        system "chmod +x ./install.sh"
-        system "chmod -R +x ./Modules/*"
-        exec "./install.sh"
+        system "chmod +x nninit.sh"
+        bin.install "nninit.sh" => "nninit"
+        <<~EOS
+        brew nn package installed, now
+        please run one of this commands:
+            - "nninit"
+            - "/usr/local/bin/nninit" 
+        for finalize installation / repair existent or update
+        EOS
     end
   end
